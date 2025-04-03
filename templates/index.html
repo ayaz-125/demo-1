@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic ML App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>ML Model Prediction</h1>
+        <form method="POST">
+            <label for="input_value">Enter a Number:</label>
+            <input type="text" id="input_value" name="input_value" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if result %}
+            <p><strong>Result:</strong> {{ result }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
