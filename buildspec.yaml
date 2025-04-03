@@ -28,4 +28,5 @@ phases:
 
 artifacts:
   files:
-    - flask_app.zip
+    - '**/*'
+  base-directory: /var/www/html/
