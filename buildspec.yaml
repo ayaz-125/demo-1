@@ -23,8 +23,8 @@ phases:
   post_build:
     commands:
       - echo "Packaging and uploading artifacts..."
-      - zip -r flask_app.zip build/
-      - aws s3 cp flask_app.zip s3://your-s3-bucket-name/
+  #     - zip -r flask_app.zip build/
+  #     - aws s3 cp flask_app.zip s3://your-s3-bucket-name/
 
 artifacts:
   files:
