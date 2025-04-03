@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.8  # Use appropriate Python version
+      python: 3.8
     commands:
       - echo "Installing dependencies..."
       - pip install --upgrade pip
@@ -23,10 +23,9 @@ phases:
   post_build:
     commands:
       - echo "Packaging and uploading artifacts..."
-  #     - zip -r flask_app.zip build/
-  #     - aws s3 cp flask_app.zip s3://your-s3-bucket-name/
+      - zip -r flask_app.zip build/
 
 artifacts:
   files:
     - '**/*'
-  base-directory: /var/www/html/
+  base-directory: build  # Use 'build' instead of '/var/www/html/'
