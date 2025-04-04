@@ -2,10 +2,12 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      python: 3.8
+    # runtime-versions:
+    #   python: 3.8
     commands:
-      - echo "Installing dependencies..."
+      - echo Installing NGINX
+      - sudo apt-get update
+      - sudo apt-get install nginx -y
       - pip install --upgrade pip
       - pip install -r requirements.txt
 
@@ -17,15 +19,19 @@ phases:
   build:
     commands:
       - echo "Building application..."
-      - mkdir -p build
-      - cp -r app.py templates static requirements.txt build/
+      - cp app.py  requirements.txt /var/www/html/
+      - cp -r templates static /var/www/html/
 
   post_build:
     commands:
-      - echo "Packaging and uploading artifacts..."
-      - zip -r flask_app.zip build/
+      - echo Configured NGINX
+      # - zip -r flask_app.zip build/
 
 artifacts:
   files:
-    - '**/*'
-  base-directory: build  # Use 'build' instead of '/var/www/html/'
+    - app.py
+    - requirements.txt
+    - templates/**
+    - static/**
+    # - scripts/**
+  discard-paths: no
