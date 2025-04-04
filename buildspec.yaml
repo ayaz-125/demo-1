@@ -7,7 +7,7 @@ phases:
     commands:
        - echo "Installing dependencies..."
       #  - sudo apt-get update -y
-       - sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nginx
+      #  - sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nginx
        - pip install --upgrade pip
        - pip install -r requirements.txt
   pre_build:
